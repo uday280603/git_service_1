@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Iproduct } from '../model/Iproduct';
+import { Iproduct, Ires } from '../model/Iproduct';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -48,5 +48,13 @@ export class ProductService {
 
   fetchAll(): Observable<Iproduct[]> {
     return of(this.productArray);
+  }
+
+  createProduct(newObj: Iproduct): Observable<Ires> {
+    this.productArray.unshift(newObj);
+    return of({
+      msg: 'new product added successfully',
+      obj: newObj,
+    });
   }
 }
