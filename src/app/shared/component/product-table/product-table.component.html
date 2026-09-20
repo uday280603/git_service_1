@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-body">
-    <table class="table table-bordered">
+  <div class="card-body p-0">
+    <table class="table table-bordered mb-0 text-center" *ngIf="getAllProducts.length > 0; else nodata">
       <thead>
         <tr>
           <th>Sr.no</th>
@@ -19,10 +19,21 @@
           <td>{{ product.price }}</td>
           <td>{{ product.category }}</td>
           <td>{{ product.description }}</td>
-          <td><button class="btn btn-primary btn-sm">Edit</button></td>
-          <td><button class="btn btn-danger btn-sm">Remove</button></td>
+          <td>
+            <button mat-raised-button color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+          <td>
+            <button (click)="onRemove(product.id)" mat-raised-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
+    <ng-template #nodata>
+      <p class="alert alert-danger text-center mb-0">No Data Found!!!!</p>
+    </ng-template>
   </div>
 </div>

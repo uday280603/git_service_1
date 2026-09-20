@@ -6,3 +6,8 @@ export interface Iproduct{
     description: string;
     
 }
+
+export interface Ires<T>{
+    msg:string,
+    Obj:T
+}

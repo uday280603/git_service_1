@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductFormComponent } from './shared/component/product-form/product-form.component';
 import { ProductDashboardComponent } from './shared/component/product-dashboard/product-dashboard.component';
 import { ProductTableComponent } from './shared/component/product-table/product-table.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { ProductTableComponent } from './shared/component/product-table/product-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
