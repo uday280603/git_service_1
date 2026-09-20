@@ -19,7 +19,7 @@
           <td>{{ product.price }}</td>
           <td>{{ product.category }}</td>
           <td>{{ product.description }}</td>
-          <td><button class="btn btn-primary btn-sm">Edit</button></td>
+          <td><button class="btn btn-primary btn-sm" (click)="onEdit(product)">Edit</button></td>
           <td><button class="btn btn-danger btn-sm">Remove</button></td>
         </tr>
       </tbody>

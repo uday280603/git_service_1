@@ -5,10 +5,9 @@ import { Iproduct } from '../../model/Iproduct';
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
-  styleUrls: ['./product-table.component.scss']
+  styleUrls: ['./product-table.component.scss'],
 })
 export class ProductTableComponent implements OnInit {
-
   getAllProducts!: Iproduct[];
 
   constructor(private _productService: ProductService) {}
@@ -28,4 +27,11 @@ export class ProductTableComponent implements OnInit {
     });
   }
 
+  onEdit(product: Iproduct) {
+    this._productService.editProductSubject$.next(product);
+  }
 }
+
+// let getConfirm = confirm('Are you swure ? You want to delete it !!');
+// if (getConfirm) {
+// }
