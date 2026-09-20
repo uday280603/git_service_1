@@ -1,1 +1,36 @@
-<p>product-form works!</p>
+<div class="card">
+   <div class="card-header bg-dark text-light"><h3>Product form</h3></div>
+   <form action="" #productForm="ngForm" >
+     <div class="card-body">
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text"  class="form-control" name="productName" ngModel>
+          </div>
+          <div class="form-group">
+             <label for="price">Price</label>
+             <input type="text"  required name="price" ngModel class="form-control">
+          </div>
+
+          <div class="form-group">
+             <label for="category">Category</label>
+             <input type="text" name="category" ngModel class="form-control">
+          </div>
+
+          <div class="form-group">
+             <label for="description">Description</label>
+             <textarea  rows="4" required name="description" ngModel class="form-control">
+             </textarea>
+          </div>
+
+        </div>
+
+         <div class="card-footer">
+            <!-- <label for=""></label> -->
+
+               <button mat-stroked-button color="primary" class="w-100" *ngIf="!IsInEditMode">Add Product</button>
+               <button mat-stroked-button color="warn" *ngIf="IsInEditMode " type="button" (click)="onUpdate()">Update Product</button>
+
+          </div>
+
+   </form>
+</div>

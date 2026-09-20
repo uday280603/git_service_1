@@ -12,4 +12,10 @@ export class ProductDashboardComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+    emiteditObj !:Iproduct ;
+
+  oneditProduct(product:Iproduct){
+     this.emiteditObj=product;
+  }
+
 }

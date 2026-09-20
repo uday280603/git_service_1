@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Iproduct } from '../model/Iproduct';
-import { Observable, of } from 'rxjs';
+import { IprodRes, Iproduct } from '../model/Iproduct';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -49,4 +49,25 @@ export class ProductService {
   fetchAll(): Observable<Iproduct[]> {
     return of(this.productArray);
   }
+
+
+emiteditSub$:Subject<Iproduct> = new Subject<Iproduct>();
+
+ onEditProduct(editObj:Iproduct){
+      this.emiteditSub$.next(editObj);
+
+ }
+
+
+
+ onUPdateProduct(updateObj:Iproduct): Observable<IprodRes<Iproduct>>{
+
+        let getIndex = this.productArray.findIndex(ele=>ele.id===updateObj.id);
+       this.productArray[getIndex]= updateObj
+         return of({
+                msg:'Updated successfully',
+                data:updateObj
+         })
+ }
+
 }

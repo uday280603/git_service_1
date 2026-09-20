@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductService } from '../../service/product.service';
 import { Iproduct } from '../../model/Iproduct';
 
@@ -10,7 +10,7 @@ import { Iproduct } from '../../model/Iproduct';
 export class ProductTableComponent implements OnInit {
 
   getAllProducts!: Iproduct[];
-
+@Output() emitEditObj :EventEmitter<Iproduct> = new EventEmitter<Iproduct>();
   constructor(private _productService: ProductService) {}
 
   ngOnInit(): void {
@@ -27,5 +27,10 @@ export class ProductTableComponent implements OnInit {
       },
     });
   }
+  onEditProduct(product:Iproduct){
+      //  this.emitEditObj.emit(product);
+
+     this._productService.onEditProduct(product);
+      }
 
 }
