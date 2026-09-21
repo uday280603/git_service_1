@@ -6,3 +6,8 @@ export interface Iproduct{
     description: string;
     
 }
+
+export interface IproductRes<T> {
+  msg: string;
+  obj: T;
+}

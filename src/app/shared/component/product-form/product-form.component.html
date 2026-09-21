@@ -1,1 +1,76 @@
-<p>product-form works!</p>
+
+<div class="card">
+<div class="card-header">
+    <h2 class="font-weight-bold text-info text-center">
+        {{IsinEditMode ? 'Update Todo' : 'Add Todo'}}
+    </h2>
+</div>
+<div class="card-body">
+<form #productForm="ngForm" (ngSubmit)="onCreateProd()">
+    <div class="form-group">
+        <label for="productName">Product Name*</label>
+        <input
+            required
+            ngModel 
+            name="productName"
+            type="text" 
+            class="form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price*</label>
+        <input
+            required
+            ngModel 
+            name="price"
+            type="text" 
+            class="form-control"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category*</label>
+        <select 
+            required
+            name="category"  
+            type="text"
+            class="form-control">
+                <option [ngValue]="true">Electronics</option>
+                <option [ngValue]="true">Footwear</option>
+                <option [ngValue]="true">Clothing</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Description*</label>
+        <input
+            required
+            ngModel 
+            name="description"
+            type="text" 
+            class="form-control"
+        >
+    </div>
+
+
+    <button mat-raised-button 
+        
+        *ngIf="!IsinEditMode"
+        color="primary" 
+        class="btn-block" 
+        type="submit">
+        Add Todo
+    </button>
+    <button mat-raised-button 
+        color="warn" 
+        class="btn-block" 
+        type="button"
+        *ngIf="IsinEditMode"
+
+        >
+        Update Todo
+    </button>
+</form>
+</div>
+</div>

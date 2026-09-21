@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Iproduct } from '../model/Iproduct';
+import { Iproduct, IproductRes } from '../model/Iproduct';
 import { Observable, of } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -49,4 +51,14 @@ export class ProductService {
   fetchAll(): Observable<Iproduct[]> {
     return of(this.productArray);
   }
+
+  onCreate(newObj : Iproduct): Observable<IproductRes<Iproduct>>{
+    this.productArray.unshift(newObj)
+
+    return of ({
+      msg : `The New Product Data with Id ${newObj} is Added Successfully...!` ,
+      obj : newObj
+    })
+  }
 }
+
